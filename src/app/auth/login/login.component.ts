@@ -26,10 +26,11 @@ loginForm : FormGroup;
    }
    this._authenticationService.login(this.loginForm.value.email,this.loginForm.value.password)
    .subscribe((response)=>{
-     console.log(response);
+    console.log(response);
+     //this._authenticationService.setAuthData(response);
    },(error)=>{
      console.log(error);
    });
-   console.log(this.loginForm.controls.email.value)
+  
   }
 }
