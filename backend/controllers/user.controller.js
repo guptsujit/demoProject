@@ -22,8 +22,12 @@ const jwt = require('jsonwebtoken');
 
     });
 }*/
+  const userdata = {
+         firstname :"varun" , lastname : "kumar", email : "vkumar@iris.com",password : "test@123",
+         firstname:"sujit", lastname : "kumar",email : "sujit.kumar@irisofware.com",password : "test@123"
+    }
 module.exports.getusers = (req,res,next) =>{
-     userdata = {name :"varun" ,email : "vkumar@iris.com",name:"sujit",email : "sujit.kumar@irisofware.com"}
+   
      res.status(200).json({ user: userdata });
 }
 module.exports.authenticate = (req, res, next) => {
@@ -31,7 +35,7 @@ module.exports.authenticate = (req, res, next) => {
      console.log(req.body);
      if (true) {
         const token = jwt.sign({ email: data.email }, "This should be a longer string")
-        res.status(200).json({ token: token });
+        res.status(200).json({ token: token,user :userdata});
     }
     // call for passport authentication
     /*passport.authenticate('local', (err, user, info) => {       
